@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  
+  --color-bh-red: #FF3B30;
+  --color-bh-blue: #0040FF;
+  --color-bh-yellow: #FFE600;
+  --color-bh-cream: #FAF8F5;
+  --color-bh-sand: #EAE6DF;
+  --color-bh-dark: #111111;
+  --color-bh-green: #00D180;
+}
+
+/* Custom Glassmorphism & Liquid Glows - Backwards compatibility & new Bauhaus equivalents */
+.glass-panel {
+  background: #ffffff;
+  color: #111111;
+  border: 3px solid #111111;
+  box-shadow: 4px 4px 0px 0px #111111;
+  border-radius: 4px;
+}
+
+.glass-panel-active {
+  background: #FFE600;
+  color: #111111;
+  border: 3px solid #111111;
+  box-shadow: 4px 4px 0px 0px #111111;
+  border-radius: 4px;
+}
+
+/* Bauhaus Grid Paper Background */
+.bauhaus-grid-bg {
+  background-color: #FAF8F5;
+  background-image: 
+    linear-gradient(#eae6df 1.5px, transparent 1.5px),
+    linear-gradient(90deg, #eae6df 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* Neo-Brutalist Bauhaus Card */
+.bh-card {
+  background: #ffffff;
+  color: #111111;
+  border: 3px solid #111111;
+  box-shadow: 5px 5px 0px 0px #111111;
+  border-radius: 0px;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bh-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px #111111;
+}
+
+/* Highlight Primary Fills */
+.bh-fill-blue {
+  background-color: #0040FF;
+  color: #ffffff;
+}
+
+.bh-fill-red {
+  background-color: #FF3B30;
+  color: #ffffff;
+}
+
+.bh-fill-yellow {
+  background-color: #FFE600;
+  color: #111111;
+}
+
+.bh-fill-green {
+  background-color: #00D180;
+  color: #111111;
+}
+
+.bh-button {
+  background: #ffffff;
+  color: #111111;
+  border: 3px solid #111111;
+  box-shadow: 4px 4px 0px 0px #111111;
+  border-radius: 0px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.1s ease;
+}
+
+.bh-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px #111111;
+  background-color: #FFE600;
+}
+
+.bh-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 0px #111111;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+  border-left: 3px solid #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111111;
+  border: 2px solid #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0040FF;
+}

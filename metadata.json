@@ -1,0 +1,6 @@
+{
+  "name": "MarketMind AI",
+  "description": "Predict Markets. Understand Consumers. Make Better Marketing Decisions. Enterprise-grade AI-Powered Marketing Intelligence, Consumer Insights, Trend Forecasting, and Marketing Decision Support Platform built by Shahid Pasha.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
