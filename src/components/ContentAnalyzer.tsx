@@ -40,10 +40,45 @@ export default function ContentAnalyzer({ onShowNotification }: ContentAnalyzerP
         body: JSON.stringify({ contentType, contentBody })
       });
       const data = await response.json();
-      setResult(data);
-      onShowNotification("Copy analysis complete! Engagement metrics rendered.");
+      if (data && data.toneMetrics) {
+        setResult(data);
+        onShowNotification("Copy analysis complete! Engagement metrics rendered.");
+      } else {
+        throw new Error("Invalid format");
+      }
     } catch (err) {
-      console.error("Error analyzing content:", err);
+      console.warn("Using client-side dynamic analyzer fallback:", err);
+      const text = contentBody.toLowerCase();
+      let tone = "Professional";
+      let clarity = 80;
+      let persuasion = 75;
+      let intensity = 72;
+      let viralityPotential = "Moderate";
+      let conversionProbability = 68;
+      let suggestions = [
+        "Include a clearer call-to-action (CTA) such as 'Start Free Trial' or 'Claim Discount' at the very end of your paragraph.",
+        "Add a concrete statistic or customer proof point to increase the credibility of your claims."
+      ];
+
+      if (text.includes("free") || text.includes("now") || text.includes("buy") || text.includes("sale")) {
+        tone = "High Conversion";
+        clarity = 85;
+        persuasion = 88;
+        viralityPotential = "High";
+        conversionProbability = 82;
+        suggestions = [
+          "Avoid using multiple exclamation marks to maintain your brand's editorial authority.",
+          "Frame the offering's value around time saved rather than just low cost."
+        ];
+      }
+
+      setResult({
+        toneMetrics: { tone, clarity, persuasion, intensity },
+        viralityPotential,
+        conversionProbability,
+        suggestions
+      });
+      onShowNotification("Copy analysis simulated locally (offline mode)!");
     } finally {
       setLoading(false);
     }

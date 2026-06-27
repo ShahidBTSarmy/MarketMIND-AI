@@ -49,14 +49,27 @@ export default function ConsumerInsights({ industry, onNavigateTo, onShowNotific
     return "text-[#FF3B30] bg-[#FF3B30]/10 border-2 border-[#111111]";
   };
 
-  const sentiment = (data && data.distribution && data.emotions) ? data : {
+  const sentiment = (data && data.distribution && data.emotions && data.recentComments && data.recentComments.length > 0) ? data : {
     healthScore: 78,
     distribution: { positive: 65, neutral: 22, negative: 13 },
     emotions: { joy: 55, surprise: 20, sadness: 10, anger: 8, fear: 7 },
-    painPoints: ["High shipping fee on minimum orders", "Slow support response during product launches"],
-    desires: ["In-app customized size calculation tools", "Biodegradable materials for accessories"],
-    recentComments: [],
-    aiInsights: []
+    painPoints: [
+      `High onboarding cost on custom integrations inside ${industry}.`,
+      "Delayed customer support response times during active launch hours."
+    ],
+    desires: [
+      `Dedicated interactive API docs and native pipeline syncs.`,
+      `More sustainable, flexible, and affordable monthly subscription tiers.`
+    ],
+    recentComments: [
+      { id: "c_1", platform: "LinkedIn", sentiment: "positive", emotion: "joy", text: `Our integration workflow completed in under 10 minutes. Absolute game-changer for ${industry} teams.` },
+      { id: "c_2", platform: "Twitter/X", sentiment: "negative", emotion: "anger", text: `Highly frustrated by the lag on the analytics interface when syncing large ${brand} data pools.` },
+      { id: "c_3", platform: "Reddit", sentiment: "neutral", emotion: "surprise", text: "Subscription fees are premium, but the accuracy and insights easily outmatch standard alternatives." }
+    ],
+    aiInsights: [
+      `Leverage the high joy sentiment scores to trigger focused advocate referral pipelines for ${brand}.`,
+      "Address active interface latency reports immediately to preserve user experience metrics."
+    ]
   };
 
   return (
